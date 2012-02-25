@@ -44,7 +44,7 @@ class ManBot
 
   def stalk
 
-    @page = @agent.get(@page.link_with(:href => %r{/?p=}))
+    @page = @page.link_with(:href => %r{/?p=}).click
     
     begin
       loop do
