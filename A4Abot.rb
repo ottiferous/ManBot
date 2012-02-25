@@ -58,10 +58,10 @@ class ManBot
 
 end
 
-name = ARGV[0]
-pass = ARGV[1]
+name = ARGV[0] #Delete this line
+pass = ARGV[1] #Delete this line
 page = ManBot.new
-page.login(ARGV[0], ARGV[1])
+page.login(ARGV[0], ARGV[1]) # login('jhovanny', 'likespenis')
 page.MenuSelect
 page.stalk
 puts 'Program Finished'
