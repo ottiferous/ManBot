@@ -10,7 +10,6 @@ class ManBot
   end
 
   def login(name, pass)
-    puts 'Logged in...'
     form = @page.forms.first
     form.username = name
     form.password = pass
@@ -21,12 +20,20 @@ class ManBot
     puts 'Getting Online Members...'
     @page = @agent.page.link_with(:text => 'Members Online').click
     #self.pickarea
-    #binding.pry
     @page = @agent.page.link_with(:text => /California/).click
   end
 
+  #    Selects area to Troll
+  #    1.
+  #       Select from a pre-defined list of places works best
+  #       if there is only a limited number of people using this program
+  #       and if they don't make a change to anything.
+  #    2.
+  #       Select from a list generated each time you log-in based on the
+  #       structure already built into the selection pages. More input but
+  #       much more stable. Usefull for people of different areas.
   def pickarea
-    puts 'Getting List of locations...'
+    puts 'Getting List of locations in California.'
     list = []
     #binding.pry
     Array(@agent.page.link_with(:href => /area_id/)).each do |item|
@@ -58,10 +65,10 @@ class ManBot
 
 end
 
-name = ARGV[0] #Delete this line
-pass = ARGV[1] #Delete this line
+name = ARGV[0]
+pass = ARGV[1]
 page = ManBot.new
-page.login(ARGV[0], ARGV[1]) # login('jhovanny', 'likespenis')
+page.login(name, pass)
+puts 'Logged in...'
 page.MenuSelect
 page.stalk
-puts 'Program Finished'
