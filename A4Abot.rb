@@ -27,18 +27,18 @@ class ManBot
     puts 'Getting List of locations in California.'
     list = []
     @page = @agent.get 'http://m.adam4adam.com/index.php?section=130&area_id=569'
-    binding.pry
     Array(@page.links_with(:dom_class => /level3/)).each do |item|
       list << item.text.strip
     end
     x = 1
     list.each do |place|
-      puts "#{x.to_s} : #{place}"
+      printf "%-3s: %s\n", x.to_s, place
+      #puts "#{x.to_s} : #{place}"
       x += 1
     end
-    puts "Which location do you want to Troll?"
+    puts "Which location do you want to stalk?"
     choice = STDIN.gets.chomp()
-    @page = @agent.page.link_with(:text => list[choice]).click
+    @page = @agent.page.link_with(:text => list[choice.to_i]).click
   end
 
   def stalk
