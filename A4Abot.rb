@@ -19,14 +19,14 @@ class ManBot
   def MenuSelect
     puts 'Getting Online Members...'
     @page = @agent.page.link_with(:text => 'Members Online').click
-    #self.pickarea
+    self.pickarea
     @page = @agent.page.link_with(:text => /California/).click
   end
 
   def pickarea
     puts 'Getting List of locations in California.'
     list = []
-    #binding.pry
+    @page = @agent.get 'http://m.adam4adam.com/index.php?section=130&area_id=569'
     Array(@agent.page.link_with(:href => /area_id/)).each do |item|
       puts item
       #list << item
