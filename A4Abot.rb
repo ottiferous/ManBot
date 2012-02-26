@@ -26,14 +26,14 @@ class ManBot
   def pickarea
     puts 'Getting List of locations in California.'
     list = []
-    @page = @agent.get 'http://m.adam4adam.com/index.php?section=130&area_id=569'
-    Array(@agent.page.link_with(:href => /area_id/)).each do |item|
-      puts item
-      #list << item
+    @page = @agent.get 'http://m.adam4adam.com/index.php?section=130&area_id=569#569'
+    binding.pry
+    Array(@page.links_with(:href => /area_id/)).each do |item|
+      list << item.text.strip
     end
     x = 1
     list.each do |place|
-      puts "#{x.to_s} : #{place.text}"
+      puts "#{x.to_s} : #{place}"
     end
     puts "Which location do you want to Troll?"
     choice = STDIN.gets.chomp()
