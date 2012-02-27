@@ -21,8 +21,8 @@ Runs in Ruby 1.8.7 (universal-darwin11.0)
 To-Do
 ---------------
 
-*Request Username & Password ( no more password in bash history for you )
-*Allow for use of 'Delete Trace' on selected profiles
++ Request Username & Password ( no more password in bash history for you )
++ Allow for use of 'Delete Trace' on selected profiles
 
 
 Under the Hood
