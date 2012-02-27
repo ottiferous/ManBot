@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'Mechanize'
-require 'pry'
 
 class ManBot
 
@@ -37,7 +36,6 @@ class ManBot
     end
     puts "\nWhich location do you want to stalk?"
     choice = STDIN.gets.chomp()
-    binding.pry
     @page = @agent.page.link_with(:text => /#{list[choice.to_i-1]}/).click
   end
 
