@@ -34,7 +34,10 @@ class ManBot
       x += 1
     end
     puts "\nWhich location do you want to stalk?"
-    choice = STDIN.gets.chomp
+    while true
+      choice = STDIN.gets.chomp
+      break if (1..list.length).include? choice.to_i 
+    end
     @page = @agent.page.link_with(:text => /#{list[choice.to_i-1]}/).click
   end
 
