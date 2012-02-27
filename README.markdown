@@ -26,6 +26,7 @@ To-Do
 
 + Request Username & Password ( no more password in bash history for you )
 + Allow for use of 'Delete Trace' on selected profiles
++ Use drop-down menu to get/select area to stalk
 
 
 Under the Hood
