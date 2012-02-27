@@ -12,7 +12,10 @@ Usage
 
 ### Invocation
 
-> ruby A4Abot.rb username password
+> ruby A4Abot.rb
+
+Prompts will be provivded for username and password. Built in menus will allow
+for selection of areas within California to visit.
 
 ### Requrements
 Runs in Ruby 1.8.7 (universal-darwin11.0)
@@ -24,10 +27,9 @@ in another part of the country / world.
 To-Do
 ---------------
 
-+ Request Username & Password ( no more password in bash history for you )
++ Request Username & Password --FINISHED
 + Allow for use of 'Delete Trace' on selected profiles
 + Use drop-down menu to get/select area to stalk
-
 
 Under the Hood
 -----------------
@@ -53,7 +55,6 @@ Under the Hood
 #### stalk
 > Iterates through the entire "who's online" section of the previously chosen
 > area in pickarea.
-
 
 Q & A
 -----------
