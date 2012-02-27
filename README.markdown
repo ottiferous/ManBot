@@ -13,6 +13,7 @@ Usage
 ### Invocation
 
 > sudo gem install mechanize
+
 > ruby A4Abot.rb
 
     Prompts will be provivded for username and password. Built in menus will allow
