@@ -55,10 +55,13 @@ class ManBot
 
 end
 
-name = ARGV[0]
-pass = ARGV[1]
+printf "Username: "
+name = STDIN.gets.chomp
+printf "Password: "
+pass = STDIN.gets.chomp
 page = ManBot.new
 page.login(name, pass)
+system ("clear")
 puts 'Logged in...'
 page.menuselect
 puts "Gotta Stalk 'em All!"
