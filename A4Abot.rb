@@ -15,7 +15,7 @@ class ManBot
     @page = @agent.submit form
   end
 
-  def MenuSelect
+  def menuselect
     puts 'Getting Online Members...'
     @page = @agent.page.link_with(:text => 'Members Online').click
     self.pickarea
@@ -35,7 +35,7 @@ class ManBot
       x += 1
     end
     puts "\nWhich location do you want to stalk?"
-    choice = STDIN.gets.chomp()
+    choice = STDIN.gets.chomp
     @page = @agent.page.link_with(:text => /#{list[choice.to_i-1]}/).click
   end
 
@@ -60,6 +60,6 @@ pass = ARGV[1]
 page = ManBot.new
 page.login(name, pass)
 puts 'Logged in...'
-page.MenuSelect
+page.menuselect
 puts "Gotta Stalk 'em All!"
 page.stalk
