@@ -33,12 +33,12 @@ class ManBot
     x = 1
     list.each do |place|
       printf "%-3s: %s\n", x.to_s, place
-      #puts "#{x.to_s} : #{place}"
       x += 1
     end
-    puts "Which location do you want to stalk?"
+    puts "\nWhich location do you want to stalk?"
     choice = STDIN.gets.chomp()
-    @page = @agent.page.link_with(:text => list[choice.to_i]).click
+    binding.pry
+    @page = @agent.page.link_with(:text => /#{list[choice.to_i-1]}/).click
   end
 
   def stalk
@@ -51,7 +51,7 @@ class ManBot
         puts (@page.uri.to_s.split '=').last
       end
     rescue
-      puts "Ran out of people!"
+      puts "Poke-a-man!"
     end
   end
 
@@ -63,4 +63,5 @@ page = ManBot.new
 page.login(name, pass)
 puts 'Logged in...'
 page.MenuSelect
+puts "Gotta Stalk 'em All!"
 page.stalk
