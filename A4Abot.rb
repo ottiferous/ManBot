@@ -33,10 +33,11 @@ class ManBot
       printf "\t%-3s: %s\n", x.to_s, place
       x += 1
     end
-    puts "\nWhich location do you want to stalk?"
     while true
+    puts "\nWhich location do you want to stalk?"
       choice = STDIN.gets.chomp
       break if (1..list.length).include? choice.to_i 
+      puts "That is not a valid choice. Try again."
     end
     @page = @agent.page.link_with(:text => /#{list[choice.to_i-1]}/).click
   end
