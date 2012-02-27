@@ -10,9 +10,16 @@ as you no longer have to view all their beautiful smiles.
 Usage
 -----------
 
-### Invocation
+### Installation
 
+    The mechanize library is required for this program to work. If you do not have
+    it installed already you will need to add the mechanize gem by typing:
 > sudo gem install mechanize
+    Once this is done you will be able to run the program normally. Sudo is
+    required ( unfortuneately ) because of where the ruby gems are located in
+    OS X.
+
+### Invocation
 
 > ruby A4Abot.rb
 
@@ -83,3 +90,13 @@ SUDO gem install!? What are you thinkgin!?
 
     Look, thats how it works on a Mac. I didn't make it this way I'm just
     working with what I have. Don't blame me.
+
+How do I run this again?
+
+    Its a command line application. Make sure you are in a command prompt and
+    in the same directory as the code you just downloaded. Now when you type
+    the invocation command it will take over.
+
+Whats Terminal?
+
+    Go away. You shouldn't be on Github.
