@@ -3,6 +3,10 @@ ManBot
 
 Ruby script to troll for attention! Just like mom!
 
+Uses Mechanize to save you the trouble of clicking 'Next' on everyone's
+wonderful profile on your favorite Man-Flesh site. Also saves on the eye-bleach
+as you no longer have to view all their beautiful smiles.
+
 Usage
 -----------
 
@@ -12,11 +16,10 @@ Usage
 
 ### Requrements
 Runs in Ruby 1.8.7 (universal-darwin11.0)
-  Because you probably have a mac.
 
 ### Limitations
-  Only works in California for now. Though I'm sure you can easily make it work
-  in another part of the country / world.
+Only works in California for now. Though I'm sure you can easily make it work
+in another part of the country / world.
 
 To-Do
 ---------------
@@ -30,7 +33,7 @@ Under the Hood
 
 ### Methods
 
-#### Initialize
+#### initialize
 > Creates a new machanize object and points the global variable @page to the
 > mobile Adam4Adam website
 
@@ -38,7 +41,7 @@ Under the Hood
 > Takes your username and password as arguments. Submits the login form and
 > updates the page
 
-#### MenuSelect
+#### menuselect
 > Slightly misleading - only selects California
 
 #### pickarea
