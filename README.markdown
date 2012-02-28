@@ -27,8 +27,8 @@ Usage
     for selection of areas within California to visit.
 
 ### Requrements
-    + Runs in Ruby 1.8.7 (universal-darwin11.0)
-    + Requires Mechanize rubygem to work
++ Runs in Ruby 1.8.7 (universal-darwin11.0)
++ Requires Mechanize rubygem to work
 
 ### Limitations
     Only works in California for now. Though I'm sure you can easily make it work
@@ -37,15 +37,15 @@ Usage
 To-Do
 ---------------
 
-    + Allow for use of 'Delete Trace' on selected profiles
-    + Use drop-down menu to get/select area to stalk
-    + Refine search locations
-    + Allow for command line switches
++ Allow for use of 'Delete Trace' on selected profiles
++ Use drop-down menu to get/select area to stalk
++ Refine search locations
++ Allow for command line switches
 
 Accomplished
 ----------------
 
-    + Request Username & Password 
++ Request Username & Password 
 
 Under the Hood
 -----------------
