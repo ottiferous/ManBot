@@ -18,6 +18,15 @@ class ManBot
   def pickarea
     list = []
     Array(@page.links_with(:href => /area_id/)).each do |item|
+
+      # This code will get the information before the link
+      # but will have some formatting issues when it comes to
+      # displaying it all in a nice clean line
+      #
+      # This might be split[4] instead of 3. Need to test.
+      #
+      # s = item.node.next.next.next.text.gsub(/\s/,"").strip.split[3]
+
       list << item.text.strip if item.text.strip != ""
     end
     x = 1
@@ -36,7 +45,7 @@ class ManBot
 
   def search
     @page = @agent.get 'http://m.adam4adam.com/?section=132'
-    
+
     system("clear")
     printf 'Search for : '
     location = STDIN.gets.chomp
