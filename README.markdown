@@ -23,16 +23,19 @@ Usage
 
 > ruby A4Abot.rb
 
-    Prompts will be provivded for username and password. Built in menus will allow
-    for selection of areas within California to visit.
+    Prompts will be provivded for username and password. As search is now
+    implemented a prompt will ask you for a place name to search. type all or
+    part of the location to have a list displayed of where you can begin viewing
+    profiles.
 
 ### Requrements
 + Runs in Ruby 1.8.7 (universal-darwin11.0)
 + Requires Mechanize rubygem to work
 
 ### Limitations
-    Only works in California for now. Though I'm sure you can easily make it work
-    in another part of the country / world.
+    There is more than one Baker in this world - the search will show them all
+    and not be very clear about where it is. While problematic I am working on
+    a solution to display the entire location. 
 
 To-Do
 ---------------
@@ -45,6 +48,7 @@ To-Do
 Accomplished
 ----------------
 
++ Locations can be searched
 + Request Username & Password 
 
 Under the Hood
@@ -86,7 +90,7 @@ I have a different version of Ruby / OS X / Bipedal movement
 
     If you have plantigrade legs I suggest you not rollerblade anytime soon.
 
-SUDO gem install!? What are you thinkgin!?
+SUDO gem install!? What are you thinking!?
 
     Look, thats how it works on a Mac. I didn't make it this way I'm just
     working with what I have. Don't blame me.
