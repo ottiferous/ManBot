@@ -16,9 +16,10 @@ class ManBot
 
   def pickarea
     list = []
-    Array(@page.links_with(:href => /area_id/)).each do |item|
+    @page.links_with(:href => /area_id/).each do |item|
 
-      # s = item.node.next.next.next.text.gsub(/\s/,"").strip.split[3]
+      # s = @page.links_with(:href => /area_id/)
+      # s[x].node.text.gsub(/\s/,"")
 
       list << item.text.strip if item.text.strip != ""
     end
@@ -41,7 +42,7 @@ class ManBot
 
     system("clear")
     printf 'Search for : '
-    page.form.field_with(:name => 'area_search').value = STDIN.gets.chomp
+    @page.form.field_with(:name => 'area_search').value = STDIN.gets.chomp
     @page = @agent.submit form
     self.pickarea.match(/&area_id_expand=([0-9]+)/)[1]
     
@@ -60,6 +61,11 @@ class ManBot
     rescue
       puts "\tViewed #{x} profiles"
     end
+  end
+
+  def logout
+    @page = @agent.get 'htp://m.adam4adam.com'
+    @page.link_with(:text => /Logout/).click
   end
 end
 
