@@ -40,6 +40,7 @@ Usage
 To-Do
 ---------------
 
++ Error Checking, a lot of it
 + Allow for use of 'Delete Trace' on selected profiles
 + Use drop-down menu to get/select area to stalk
 + Refine search locations
