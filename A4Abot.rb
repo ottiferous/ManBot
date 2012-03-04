@@ -42,8 +42,10 @@ class ManBot
     @page = @agent.get 'http://m.adam4adam.com/?section=132'
     system("clear")
     printf 'Search for : '
-    form = @page.form_with(:name => 'area_search')
-    @page.form.field_with(:name => 'area_search').value = STDIN.gets.chomp
+    form = @page.form
+    @page.form.field_with(:name => /.*area_search/).value = STDIN.gets.chomp
+    binding.pry
+
     @page = form.submit
     self.pickarea.match(/&area_id_expand=([0-9]+)/)[1]
   end
