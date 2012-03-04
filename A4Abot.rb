@@ -6,7 +6,7 @@ class ManBot
 
   def initialize
     @agent = Mechanize.new
-    @agent.user_agent_alias = 'Mac Safari'
+    @agent.user_agent_alias = 'iPhone'
     @page = @agent.get 'http://m.adam4adam.com'
   end
 
