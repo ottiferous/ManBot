@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'Mechanize'
-require 'pry'
 
 class ManBot
 
@@ -44,8 +43,6 @@ class ManBot
     printf 'Search for : '
     form = @page.form
     @page.form.field_with(:name => /.*area_search/).value = STDIN.gets.chomp
-    binding.pry
-
     @page = form.submit
     self.pickarea.match(/&area_id_expand=([0-9]+)/)[1]
   end
