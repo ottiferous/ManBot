@@ -56,6 +56,7 @@ class ManBot
     x = 0 
     begin
       loop do
+        sleep((rand(11.0)/10.0 + rand(11.0)/10.0))
         @page = @agent.page.link_with(:text => /Next*/).click
         puts (@page.uri.to_s.split '=').last
         x += 1
