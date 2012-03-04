@@ -1,26 +1,27 @@
 require 'rubygems'
 require 'Mechanize'
+require 'pry'
 
 class ManBot
 
   def initialize
     @agent = Mechanize.new
+    @agent.user_agent_alias = 'Mac Safari'
     @page = @agent.get 'http://m.adam4adam.com'
   end
 
   def login(name, pass)
+    form = @page.form_with(:name => 'log')
     @page.form.field_with(:name => 'username').value = name
     @page.form.field_with(:name => 'password').value = pass
-    @page = @agent.submit form
+    @page = form.submit
   end
 
   def pickarea
     list = []
     @page.links_with(:href => /area_id/).each do |item|
-
       # s = @page.links_with(:href => /area_id/)
       # s[x].node.text.gsub(/\s/,"")
-
       list << item.text.strip if item.text.strip != ""
     end
     x = 1
@@ -39,13 +40,12 @@ class ManBot
 
   def search
     @page = @agent.get 'http://m.adam4adam.com/?section=132'
-
     system("clear")
     printf 'Search for : '
+    form = @page.form_with(:name => 'area_search')
     @page.form.field_with(:name => 'area_search').value = STDIN.gets.chomp
-    @page = @agent.submit form
+    @page = form.submit
     self.pickarea.match(/&area_id_expand=([0-9]+)/)[1]
-    
   end
 
   def stalk(url)
@@ -60,6 +60,7 @@ class ManBot
       end
     rescue
       puts "\tViewed #{x} profiles"
+      self.logout
     end
   end
 
@@ -76,8 +77,8 @@ printf "Username: "
 name = STDIN.gets.chomp
 printf "Password: "
 pass = STDIN.gets.chomp
-page = ManBot.new
 
+page = ManBot.new
 page.login(name, pass)
 system ("clear")
 puts 'Logged in...'
