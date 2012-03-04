@@ -65,7 +65,7 @@ class ManBot
   end
 
   def logout
-    @page = @agent.get 'htp://m.adam4adam.com'
+    @page = @agent.get 'http://m.adam4adam.com'
     @page.link_with(:text => /Logout/).click
   end
 end
