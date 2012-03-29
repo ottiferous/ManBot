@@ -4,9 +4,17 @@ require 'Mechanize'
 class ManBot
 
   def initialize
+    @stayon = true
     @agent = Mechanize.new
     @agent.user_agent_alias = 'iPhone'
     @page = @agent.get 'http://m.adam4adam.com'
+
+    # determine if we are going to log off or stay on
+    ARGV.each do|a|
+      @stayon = false if a == "-logoff"
+    end
+    puts @stayon
+    sleep 20
   end
 
   def login(name, pass)
@@ -18,17 +26,16 @@ class ManBot
 
   def pickarea
     list = []
-    @page.links_with(:href => /area_id/).each do |item|
-      # s = @page.links_with(:href => /area_id/)
-      # s[x].node.text.gsub(/\s/,"")
-      list << item.text.strip if item.text.strip != ""
-    end
-    x = 1
-    list.each do |place|
-      printf "\t%-3s: %s\n", x.to_s, place
-      x += 1
-    end
     while true
+      @page.links_with(:href => /area_id/).each do |item|
+        list << item.text.strip if item.text.strip != ""
+      end
+      x = 1
+      list.each do |place|
+        printf "\t%-3s: %-20s \n", x.to_s, place
+        x += 1
+      end
+
       puts "\nWhich location do you want to stalk?"
       choice = STDIN.gets.chomp
       break if (1..list.length).include? choice.to_i 
@@ -60,7 +67,7 @@ class ManBot
       end
     rescue
       puts "\tViewed #{x} profiles"
-      self.logout
+      self.logout if @stayon == false
     end
   end
 
